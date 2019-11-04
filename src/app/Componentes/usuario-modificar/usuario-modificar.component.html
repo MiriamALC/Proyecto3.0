@@ -1,0 +1,155 @@
+<app-menu></app-menu>
+
+<div class="container-fluer page-content">
+    <div class="col-lg-12 ">
+      
+        <div class="p-1 shadow-sm rounded banner">
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a [routerLink]="['/Usuarios/Agregar']" routerLinkActive="router-link-active"  class="nav-item nav-link " id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">Agregar Usuario</a>
+                    <a [routerLink]="['/Usuarios/Modificar']" routerLinkActive="router-link-active"  class="nav-item nav-link active bg-primary text-white" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false">Modificar Usuario</a>
+                </div>
+            </nav>
+            <div class="tab-content p-5" id="nav-tabContent">
+                <div *ngIf="idUser > 0">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="modalPerfil" class="form-group">
+                                <label for="perfil">Tipo de Usuario</label>
+                                <select [(ngModel)]="carbrand" (change)="onChange(carbrand)" name="perfil" placeholder="Seleccione tipo de Perfil" id="perfil" class="form-control" onchange=""><option value="1">Administrador</option><option value="2">Empleado</option></select>
+                            </div>
+                        </div>                                    
+                    </div>                                                     
+        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="ApellidosUsuario">Apellido Paterno:</label>
+                                <div class="position-relative">
+                                    <input [(ngModel)]="AP" type="text" id="Nombre" class="form-control" placeholder="Apellido Paterno">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="ApellidosUsuario">Apellido Materno:</label>
+                                <div class="position-relative">
+                                    <input [(ngModel)]="AM" type="text" id="ApellidosM" class="form-control" placeholder="Apellido Materno">
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+        
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Nombre">Nombre:</label>
+                                <div class="position-relative">
+                                    <input [(ngModel)]="Nombre" type="text" id="Nombre" class="form-control" placeholder="Nombre" name="Nombre">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Telefono">Telefono:</label>
+                                <div class="position-relative">
+                                    <input [(ngModel)]="Telefono" type="text" id="Telefono" class="form-control" placeholder="Teléfono">
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="usuario">Usuario:</label>
+                                <div class="position-relative has-icon-left">
+                                    <input [(ngModel)]="user" type="text" id="usuario" class="form-control" placeholder="usuario" name="usuario">
+                                    <div class="form-control-position">
+                                        <i class="icon-user"></i>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="contrasena">Contraseña:</label>
+                                <div class="position-relative has-icon-left">
+                                    <input [(ngModel)]="password" type="text" id="contrasena" class="form-control" placeholder="contrasena" name="contrasena">
+                                    <div class="form-control-position">
+                                        <i class="icon-lock"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                        <p>{{TipoUser}} {{AP}} {{AM}} {{Nombre}} {{Telefono}} {{user}} {{password}}</p>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div *ngIf="TipoUser != '' && Nombre != '' && AP != '' && AM != '' && Telefono != '' && user != '' && password != '' " class="col-md-1">
+                            <div class="form-group">
+                                <button (click)="AltaModificar()" id="Guardar" type="button" class="btn btn-info">
+                                    <i class="icon-ok"></i> Guardar
+                                </button>
+                            </div>    
+                        </div>
+                        <div class="col-md-1" style="margin-left:10px;">
+                            <div class="form-group">
+                                <button (click)="CancelarModificar()" id="Cancelar" type="button" class="btn btn-info">
+                                    <i class="icon-remove"></i> Cancelar
+                                </button>
+                            </div>    
+                        </div>
+                    </div>
+                </div>    
+
+            </div>
+
+        
+            <div class="tab-content p-5" id="nav-tabContent">        
+                <div class="container py-2">
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto bg-white rounded shadow">
+            
+                            <!-- Fixed header table-->
+                            <div class="table-responsive">
+                                <table class="table table-fixed">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="col-1">#</th>
+                                            <th scope="col" class="col-1">Usuario</th>
+                                            <th scope="col" class="col-1">Nombre</th>
+                                            <th scope="col" class="col-2">Appellido Paterno</th>
+                                            <th scope="col" class="col-2">Appellido Paterno</th>
+                                            <th scope="col" class="col-2">Telefono</th>
+                                            <th scope="col" class="col-3">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let user of usuarios">
+                                            <th scope="row" class="col-1">{{user.IdUsuario}}</th>
+                                            <td class="col-1">{{user.usuario}}</td>
+                                            <td class="col-1">{{user.NombreUsuario}}</td>
+                                            <td class="col-2">{{user.ApellidoPaterno}}</td>
+                                            <td class="col-2">{{user.ApellidoMaterno}}</td>
+                                            <td class="col-2">{{user.telefono}}</td>
+                                            <td class="col-3">
+                                                <button (click)="Modificar(user.IdUsuario)"  type="button" class="btn btn-primary btn-sm">Modificar</button>
+                                                <button (click)="Eliminar(user.IdUsuario)"  type="button" style="margin: 5px" class="btn btn-secondary btn-sm">Borrar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- End -->
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>    
+    </div>
+</div>
+

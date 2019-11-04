@@ -1,0 +1,114 @@
+<app-menu></app-menu>
+
+<div class="container-fluer page-content">
+    <div class="col-lg-12 ">
+      
+        <div class="p-1 shadow-sm rounded banner">
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a [routerLink]="['/Usuarios/Agregar']" routerLinkActive="router-link-active" class="nav-item nav-link active bg-primary text-white" id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">Agregar Usuario</a>
+                <a [routerLink]="['/Usuarios/Modificar']" routerLinkActive="router-link-active" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false">Modificar Usuario</a>
+                </div>
+            </nav>
+        
+            <div class="tab-content p-5" id="nav-tabContent">
+                            
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="modalPerfil" class="form-group">
+                        <label for="perfil">Tipo de Usuario</label>
+                        <select [(ngModel)]="carbrand" (change)="onChange(carbrand)" name="perfil" placeholder="Seleccione tipo de Perfil" id="perfil" class="form-control" onchange=""><option value="1">Administrador</option><option value="2">Empleado</option></select>
+                    </div>
+                </div>                                    
+            </div>                                                     
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="ApellidosUsuario">Apellido Paterno:</label>
+                        <div class="position-relative">
+                            <input [(ngModel)]="AP" type="text" id="Nombre" class="form-control" placeholder="Apellido Paterno">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="ApellidosUsuario">Apellido Materno:</label>
+                        <div class="position-relative">
+                            <input [(ngModel)]="AM" type="text" id="ApellidosM" class="form-control" placeholder="Apellido Materno">
+                        </div>
+                    </div>
+                </div>                            
+            </div>
+
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Nombre">Nombre:</label>
+                        <div class="position-relative">
+                            <input [(ngModel)]="Nombre" type="text" id="Nombre" class="form-control" placeholder="Nombre" name="Nombre">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Telefono">Telefono:</label>
+                        <div class="position-relative">
+                            <input [(ngModel)]="Telefono" type="text" id="Telefono" class="form-control" placeholder="Teléfono">
+                        </div>
+                    </div>
+                </div>                            
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="usuario">Usuario:</label>
+                        <div class="position-relative has-icon-left">
+                            <input [(ngModel)]="user" type="text" id="usuario" class="form-control" placeholder="usuario" name="usuario">
+                            <div class="form-control-position">
+                                <i class="icon-user"></i>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="contrasena">Contraseña:</label>
+                        <div class="position-relative has-icon-left">
+                            <input [(ngModel)]="password" type="text" id="contrasena" class="form-control" placeholder="contrasena" name="contrasena">
+                            <div class="form-control-position">
+                                <i class="icon-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <p>{{TipoUser}} {{AP}} {{AM}} {{Nombre}} {{Telefono}} {{user}} {{password}}</p>
+            </div>
+            <br>
+            <div class="row">
+                <div *ngIf="TipoUser != '' && Nombre != '' && AP != '' && AM != '' && Telefono != '' && user != '' && password != '' " class="col-md-1">
+                    <div class="form-group">
+                        <button (click)="Alta()" id="Guardar" type="button" class="btn btn-info">
+                            <i class="icon-ok"></i> Guardar
+                        </button>
+                    </div>    
+                </div>
+                <div class="col-md-1" style="margin-left:10px;">
+                    <div class="form-group">
+                        <button (click)="Cancelar()" id="Cancelar" type="button" class="btn btn-info">
+                            <i class="icon-remove"></i> Cancelar
+                        </button>
+                    </div>    
+                </div>
+            </div>
+
+
+            </div>
+            <div>
+        </div>    
+    </div>
+</div>
+

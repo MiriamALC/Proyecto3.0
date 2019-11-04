@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+
+<div class="container-fluer page-content">
+    <div class="col-lg-12 ">
+      
+        <div class="p-1 shadow-sm rounded banner">
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a [routerLink]="['/Ruteo/Mapa']" routerLinkActive="router-link-active" class="nav-item nav-link active bg-primary text-white" id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">Mapa</a>
+                <a [routerLink]="['/Ruteo/AgregarUbicacion']" routerLinkActive="router-link-active" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false">Agregar Ubicación</a>
+                </div>
+            </nav>
+        
+            <div class="tab-content p-5" id="nav-tabContent">
+                             <!--                                  
+                <agm-map [latitude]="Ilat" [longitude]="Ilng">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>-->
+
+                <agm-map  [latitude]="Ilat" [longitude]="Ilng">
+                    <agm-marker *ngFor="let ubi of ubicacion" [label]="ubi.DescripcionMapa" [latitude]="ubi.lat" [longitude]="ubi.lng"></agm-marker>
+                    <!--<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>-->
+                </agm-map>
+
+
+            </div>
+            <div>
+        </div>    
+    </div>
+</div>
+

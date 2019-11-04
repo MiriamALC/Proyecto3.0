@@ -1,0 +1,161 @@
+<app-menu></app-menu>
+
+<div class="container-fluer page-content">
+    <div class="col-lg-12 ">
+      
+        <div class="p-1 shadow-sm rounded banner">
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a [routerLink]="['/Ventas/VentaCredito']" routerLinkActive="router-link-active" class="nav-item active bg-primary text-white nav-link" id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">Venta a credito</a>
+                <a [routerLink]="['/Ventas/VentaDeposito']" routerLinkActive="router-link-active" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false">Deposito de Venta</a>
+                </div>
+            </nav>
+        
+            <div class="tab-content p-5" id="nav-tabContent">
+                
+                <div class="container h-100">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="searchbar">
+                        <input [(ngModel)]="Busqueda" class="search_input" type="text" name="" placeholder="Search...">
+                        <a (click)="Buscar()" class="search_icon"><i class="fa fa-search"></i></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <br>
+                  <div class="row">
+                    <div *ngIf="Busquedaid != ''" class="col-md-6">
+                        <div class="form-group">
+                            <label>idProducto:</label>
+                            <div class="position-relative">
+                                <input [(ngModel)]="Busquedaid" type="text" id="Busquedaid" class="form-control" placeholder="ID" >
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="Busquedaid != ''" class="col-md-6">
+                        <div class="form-group">
+                            <label>Descripción:</label>
+                            <div class="position-relative">
+                                <input [(ngModel)]="Busquedadescripcion" type="text" id="Busquedadescripcion" class="form-control" placeholder="Descripción">
+                            </div>
+                        </div>
+                    </div>                            
+                </div>
+                <div class="row">
+                    <div *ngIf="Busquedaid != ''" class="col-md-6">
+                        <div class="form-group">
+                            <label>Cantidad:</label>
+                            <div class="position-relative">
+                                <input [(ngModel)]="Busquedacantidad" type="text" id="Busquedacantidad" class="form-control" placeholder="Cantidad">
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="Busquedaid != ''" class="col-md-6">
+                        <div class="form-group">
+                            <label>Precio:</label>
+                            <div class="position-relative">
+                                <input [(ngModel)]="Busquedaprecio" type="text" id="Busquedaprecio" class="form-control" placeholder="Precio">
+                            </div>
+                        </div>
+                    </div>                            
+                </div>
+                <div class="row">
+                    <div *ngIf="Busquedaid != ''" class="col-md-1">
+                        <div class="form-group">
+                            <button (click)="AgregarProducto()" id="Guardar" type="button" class="btn btn-info">
+                                <i class="icon-ok"></i> Agregar
+                            </button>
+                        </div>    
+                    </div>
+                    <div *ngIf="Busquedaid != ''" class="col-md-1" style="margin-left:10px;">
+                        <div class="form-group">
+                            <button (click)="CancelarBusqueda()" id="Cancelar" type="button" class="btn btn-info">
+                                <i class="icon-remove"></i> Cancelar
+                            </button>
+                        </div>    
+                    </div>
+                </div>
+                  <br><br><br>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Total:</label>
+                            <div class="position-relative">
+                                <input [(ngModel)]="total" type="text" id="Busquedaid" class="form-control" placeholder="Total" >
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Cliente:</label>
+                            <div class="position-relative">
+                                <input [(ngModel)]="cliente" type="text" id="cliente" class="form-control" placeholder="Cliente" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                      
+                        <thead>
+                        <tr>
+                          <th scope="col" class="border-0 bg-light">
+                            <div class="p-2 px-3 text-uppercase">Producto</div>
+                          </th>
+                          <th scope="col" class="border-0 bg-light">
+                            <div class="py-2 text-uppercase">Precio</div>
+                          </th>
+                          <th scope="col" class="border-0 bg-light">
+                            <div class="py-2 text-uppercase">cantidad</div>
+                          </th>
+                          <th scope="col" class="border-0 bg-light">
+                            <div class="py-2 text-uppercase">Quitar</div>
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr *ngFor="let producto of productoCarrito">
+                          <th scope="row" class="border-0">
+                            <div class="p-2">
+                              <div class="ml-3 d-inline-block align-middle">
+                                <h5 class="mb-0"> <a class="text-dark d-inline-block align-middle">{{producto.desc}}</a></h5>
+                              </div>
+                            </div>
+                          </th>
+                          <td class="border-0 align-middle"><strong>$ {{producto.precio}}</strong></td>
+                          <td class="border-0 align-middle"><strong>{{producto.cant}}</strong></td>
+                          <td class="border-0 align-middle"><a (click)="quitar(nproducto)" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                <br>
+                <div class="row">
+                    <div *ngIf="Description != '' && lat != '' && lng != ''"class="col-md-1">
+                        <div class="form-group">
+                            <button (click)="Alta()" id="Guardar" type="button" class="btn btn-info">
+                                <i class="icon-ok"></i> Venta
+                            </button>
+                        </div>    
+                    </div>
+                    <div class="col-md-1" style="margin-left:10px;">
+                        <div class="form-group">
+                            <button (click)="Cancelar()" id="Cancelar" type="button" class="btn btn-info">
+                                <i class="icon-remove"></i> Cancelar
+                            </button>
+                        </div>    
+                    </div>
+                </div>
+    
+
+            </div>
+            <div>
+        </div>    
+    </div>
+</div>
+

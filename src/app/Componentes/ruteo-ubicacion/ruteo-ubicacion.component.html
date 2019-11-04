@@ -1,0 +1,72 @@
+<app-menu></app-menu>
+
+<div class="container-fluer page-content">
+    <div class="col-lg-12 ">
+      
+        <div class="p-1 shadow-sm rounded banner">
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a [routerLink]="['/Ruteo/Mapa']" routerLinkActive="router-link-active" class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">Mapa</a>
+                <a [routerLink]="['/Ruteo/AgregarUbicacion']" routerLinkActive="router-link-active" class="nav-item active bg-primary text-white nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false">Agregar Ubicación</a>
+                </div>
+            </nav>
+        
+            <div class="tab-content p-5" id="nav-tabContent">
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="ApellidosUsuario">Descripcion:</label>
+                            <div class="position-relative">
+                                <input [(ngModel)]="Description" type="text" id="Descripcion" class="form-control" placeholder="Descripción">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="ApellidosUsuario">Latitud:</label>
+                            <div class="position-relative">
+                                <input [(ngModel)]="lat" type="text" id="lati" class="form-control" placeholder="Latitud">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="ApellidosUsuario">Longitud:</label>
+                            <div class="position-relative">
+                                <input [(ngModel)]="lng" type="text" id="long" class="form-control" placeholder="Longitud">
+                            </div>
+                        </div>
+                    </div>                            
+                </div>
+                <p>{{Description}} {{lat}} {{lng}} </p>
+
+                <br>
+                <div class="row">
+                    <div *ngIf="Description != '' && lat != '' && lng != ''"class="col-md-1">
+                        <div class="form-group">
+                            <button (click)="Alta()" id="Guardar" type="button" class="btn btn-info">
+                                <i class="icon-ok"></i> Guardar
+                            </button>
+                        </div>    
+                    </div>
+                    <div class="col-md-1" style="margin-left:10px;">
+                        <div class="form-group">
+                            <button (click)="Cancelar()" id="Cancelar" type="button" class="btn btn-info">
+                                <i class="icon-remove"></i> Cancelar
+                            </button>
+                        </div>    
+                    </div>
+                </div>
+    
+
+            </div>
+            <div>
+        </div>    
+    </div>
+</div>
+
