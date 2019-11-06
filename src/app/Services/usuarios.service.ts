@@ -20,10 +20,6 @@ export class UsuariosService {
     return this.http.get(`${this.url}usuarioAlta.php?Nombre=${Nombre}&&AP=${AP}&&AM=${AM}&&Telefono=${Telefono}&&password=${password}&&user=${user}&&TipoUser=${TipoUser}`);    
   }
 
-  Modificar(IdUsuario,Nombre,AP,AM,Telefono,password,user,TipoUser) {
-    return this.http.get(`${this.url}usuarioModificar.php?IdUsuario=${IdUsuario}&&Nombre=${Nombre}&&AP=${AP}&&AM=${AM}&&Telefono=${Telefono}&&password=${password}&&user=${user}&&TipoUser=${TipoUser}`);    
-  }
-
   baja(codigo:number) {
     return this.http.get(`${this.url}usuarioBaja.php?IdUsuario=${codigo}`);
   }

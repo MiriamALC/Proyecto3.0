@@ -21,8 +21,8 @@ export class RuteoComponent implements OnInit {
  
   ngOnInit() {
 
-    this.setCurrentLocation();
     this.Cargar();
+    this.setCurrentLocation();
   }
 
   private setCurrentLocation() {
@@ -30,7 +30,6 @@ export class RuteoComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
         this.Ilat = position.coords.latitude;
         this.Ilng = position.coords.longitude;
-        console.log( position.coords.latitude + position.coords.longitude +", "+this.Ilat +this.Ilng);
       });
     }
   }

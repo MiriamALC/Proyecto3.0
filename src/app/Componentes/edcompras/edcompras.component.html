@@ -1,0 +1,50 @@
+<app-menu></app-menu>
+
+<div class="container-fluer page-content">
+<div class="col-lg-12 ">
+        <div>
+    <h2 class="text-center">Editar Producto</h2>
+    <form [formGroup]="addForm" novalidate class="form">
+
+        <div class="form-group">
+            <label for nombre>Código del producto:</label>
+            <input type="text" formControlName="id" placeholder="Nombre del producto" name="id" class="form-control">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="addForm.get('id').hasError('required') && addForm.get('id').touched">
+                Ingresa un nombre por favor
+        </div>
+
+        <div class="form-group">
+                <label for nombre>Nombre del producto:</label>
+                <input type="text" formControlName="nombre" placeholder="Nombre del producto" name="nombre" class="form-control">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="addForm.get('nombre').hasError('required') && addForm.get('nombre').touched">
+                Ingresa un nombre por favor
+        </div>
+
+        <div class="form-group">
+                <label for precio>Precio del producto:</label>
+                <input type="number" formControlName="precio" placeholder="Precio del producto" name="precio" class="form-control">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="addForm.get('precio').hasError('required') && addForm.get('precio').touched">
+                Ingresa el precio por favor
+        </div>
+        
+        <div class="form-group">
+                <label for existencias>Existencias:</label>
+                <input type="number" formControlName="existencias" placeholder="No. de existencias del producto" name="existencias" class="form-control">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="addForm.get('existencias').hasError('required') && addForm.get('existencias').touched">
+                        Ingresa el numero de productos existentes por favor
+                </div>
+
+                <button class="btn btn-success" (click)="update()">Editar</button>
+    </form></div>
+   
+</div>
+</div>
+

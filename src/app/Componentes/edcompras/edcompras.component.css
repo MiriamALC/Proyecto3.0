@@ -1,0 +1,29 @@
+.banner {
+
+    background: #D8D7D6;
+  
+    /*background: #a770ef;
+    background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+    background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);*/
+  }
+  
+  .page-content {
+    width: calc(100% - 17rem);
+    height: 150px;
+    margin-left: 17rem;
+    transition: all 0.4s;
+  }
+  
+  .separator {
+    margin: 3rem 0;/*
+    border-bottom: 1px dashed #fff;*/
+  }
+  
+  .text-uppercase {
+    letter-spacing: 0.1em;
+  }
+  
+  .text-gray {
+    color: black
+  }
+  
