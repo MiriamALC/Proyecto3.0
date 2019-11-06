@@ -13,7 +13,7 @@ export class UsuariosService {
 
   public User = null
 
-  url = 'http://localhost/proyecto/';
+  url = 'http://localhost/PHP/';
   uri = '';
 
   alta(Nombre,AP,AM,Telefono,password,user,TipoUser) {

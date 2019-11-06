@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class RuteoService {
 
-  url = 'http://localhost/proyecto/';
+  url = 'http://localhost/PHP/';
 
   constructor(private router: Router,private http: HttpClient) { }
   

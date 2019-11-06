@@ -12,6 +12,10 @@ import { RuteoComponent } from './Componentes/ruteo/ruteo.component';
 import { RuteoUbicacionComponent } from './Componentes/ruteo-ubicacion/ruteo-ubicacion.component';
 import { VentasCreditosComponent } from './Componentes/ventas-creditos/ventas-creditos.component';
 import { VentasCreditosDepositoComponent } from './Componentes/ventas-creditos-deposito/ventas-creditos-deposito.component';
+import { ComprasComponent } from './Componentes/compras/compras.component';
+import { EComprasComponent } from './Componentes/ecompras/ecompras.component';
+import { EDComprasComponent } from './Componentes/edcompras/edcompras.component';
+import { VentasComponent } from './Componentes/ventas/ventas.component';
 
 
 const routes: Routes = [
@@ -25,6 +29,10 @@ const routes: Routes = [
   {path: 'Inventario/Modificar', component: InventarioModificarComponent},
   {path: 'Ventas/VentaCredito', component: VentasCreditosComponent},
   {path: 'Ventas/VentaDeposito', component: VentasCreditosDepositoComponent},
+  {path: 'Compras', component: ComprasComponent},
+  {path: 'ECompras', component: EComprasComponent},
+  {path: 'EDCompras', component: EDComprasComponent},
+  {path: 'Ventas', component: VentasComponent},
   {path: 'Pdf', component: PDFComponent},
   {path: '', pathMatch: 'full', redirectTo: 'Login'},
   {path: '**', pathMatch: 'full', redirectTo: 'Login'}

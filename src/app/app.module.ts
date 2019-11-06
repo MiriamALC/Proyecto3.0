@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 
@@ -24,7 +24,19 @@ import { RuteoUbicacionComponent } from './Componentes/ruteo-ubicacion/ruteo-ubi
 import { VentasCreditosComponent } from './Componentes/ventas-creditos/ventas-creditos.component';
 import { VentasCreditosDepositoComponent } from './Componentes/ventas-creditos-deposito/ventas-creditos-deposito.component';
 
+import { ComprasComponent } from './Componentes/compras/compras.component';
+import { EComprasComponent } from './Componentes/ecompras/ecompras.component';
+import { EDComprasComponent } from './Componentes/edcompras/edcompras.component';
+import { VentasComponent } from './Componentes/ventas/ventas.component';
+import { Routes } from '@angular/router';
 
+export const routes: Routes = [
+  {path: '', component: AppComponent, pathMatch: 'full'},
+  {path: 'ECompras', component: EComprasComponent},
+  {path: 'Compras', component: ComprasComponent},
+  {path: 'EDCompras/:id', component: EDComprasComponent},
+  {path: 'Ventas', component: VentasComponent},
+];
 
 
 @NgModule({
@@ -42,12 +54,17 @@ import { VentasCreditosDepositoComponent } from './Componentes/ventas-creditos-d
     RuteoComponent,
     RuteoUbicacionComponent,
     VentasCreditosComponent,
-    VentasCreditosDepositoComponent
+    VentasCreditosDepositoComponent,
+    ComprasComponent,
+    EComprasComponent,
+    EDComprasComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    FormsModule, 
+    FormsModule,
+    ReactiveFormsModule, 
     BrowserAnimationsModule ,
     HttpClientModule,
     AgmCoreModule.forRoot({

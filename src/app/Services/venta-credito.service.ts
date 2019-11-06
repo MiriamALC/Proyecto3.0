@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VentaCreditoService {
 
-  url = 'http://localhost/proyecto/';
+  url = 'http://localhost/PHP/';
 
   constructor(private router: Router,private http: HttpClient) { }
 

@@ -4,24 +4,27 @@
 <div class="col-lg-12 ">
 
     <section>
+            <h2 class="text-center">Vender Producto</h2>
     <div class="row">
         <div class="col-md-2">ID</div>
         <div class="col-md-2">Nombre</div>
-        <div class="col-md-2">Precio</div>
+        <div class="col-md-2">Precio</div> 
         <div class="col-md-2">Existencias</div>
-        <!--<div class="col-md-2">Cantidad</div>-->
+        <div class="col-md-2">Cantidad</div>-->
         <div class="col-md-2">Comprar</div>
     </div>
 
     <div class="row" *ngFor="let prod of ventas">
-        <div class="col-md-2">{{prod.id}}</div>
+        <form [formGroup]="addForm" novalidate class="form">
+        <div class="col-md-2 form-control" formControlName="id_compras">{{prod.id}}</div>
         <div class="col-md-2">{{prod.nombre}}</div>
         <div class="col-md-2">{{prod.precio}}</div>
         <div class="col-md-2">{{prod.existencias}}</div>
-        <!--<div class="col-md-2">
-            <input type="number" name="cantidad" id="cantidad">
-        </div>-->
-        <div class="col-md-2"><button class="btn btn-success" (click)="edit(prod)">Comprar</button></div>
+        <div class="col-md-2">
+            <input type="number" formControlName="cantidad" name="cantidad" class="form-control">
+        </div>
+        </form>
+        <div class="col-md-2"><button class="btn btn-success" (click)="edit(prod)">Vender</button></div>
     </div>
     </section>
 </div>
